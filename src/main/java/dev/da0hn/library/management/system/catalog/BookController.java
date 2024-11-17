@@ -5,6 +5,7 @@ import dev.da0hn.library.management.system.catalog.dto.CreateBookInput;
 import dev.da0hn.library.management.system.catalog.dto.UpdateBookInput;
 import dev.da0hn.library.management.system.shared.dto.ApiCollectionResponse;
 import dev.da0hn.library.management.system.shared.dto.ApiResponse;
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -24,12 +25,22 @@ public class BookController {
     private final BookService bookService;
 
     @PostMapping
+    @Operation(
+        summary = "Create a new book",
+        description = "Create a new book with the given input",
+        tags = { "books" }
+    )
     public ResponseEntity<ApiResponse<BookDetail>> createBook(@RequestBody final CreateBookInput input) {
         final var book = this.bookService.save(input);
         return ResponseEntity.ok(ApiResponse.of(BookDetail.of(book)));
     }
 
     @GetMapping("/{bookId}")
+    @Operation(
+        summary = "Find a book by id",
+        description = "Find a book by the given id",
+        tags = { "books" }
+    )
     public ResponseEntity<ApiResponse<BookDetail>> findById(@PathVariable final Long bookId) {
         return this.bookService.findById(bookId)
             .map(book -> ResponseEntity.ok(ApiResponse.of(BookDetail.of(book))))
@@ -37,6 +48,11 @@ public class BookController {
     }
 
     @GetMapping
+    @Operation(
+        summary = "Find all books",
+        description = "Find all books",
+        tags = { "books" }
+    )
     public ResponseEntity<ApiCollectionResponse<BookDetail>> findAll() {
         final var books = this.bookService.findAll().stream()
             .map(BookDetail::of)
@@ -45,6 +61,11 @@ public class BookController {
     }
 
     @PutMapping("/{bookId}")
+    @Operation(
+        summary = "Update a book",
+        description = "Update a book with the given input",
+        tags = { "books" }
+    )
     public ResponseEntity<ApiResponse<BookDetail>> updateBook(
         @RequestBody final UpdateBookInput input,
         @PathVariable final Long bookId
@@ -54,6 +75,11 @@ public class BookController {
     }
 
     @DeleteMapping("/{bookId}")
+    @Operation(
+        summary = "Delete a book",
+        description = "Delete a book by the given id",
+        tags = { "books" }
+    )
     public ResponseEntity<Void> deleteBook(@PathVariable final Long bookId) {
         this.bookService.deleteById(bookId);
         return ResponseEntity.noContent().build();
