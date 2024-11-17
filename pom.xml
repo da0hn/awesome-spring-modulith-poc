@@ -10,7 +10,7 @@
     </parent>
     <groupId>dev.da0hn.library.management.system</groupId>
     <artifactId>awesome-spring-modulith-poc</artifactId>
-    <version>0.0.1</version>
+    <version>0.1.0</version>
     <name>awesome-spring-modulith-poc</name>
     <description>awesome-spring-modulith-poc</description>
     <properties>
@@ -41,6 +41,10 @@
         <dependency>
             <groupId>org.flywaydb</groupId>
             <artifactId>flyway-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-database-postgresql</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.modulith</groupId>

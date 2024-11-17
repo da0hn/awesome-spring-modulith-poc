@@ -1,3 +1,33 @@
 spring:
   application:
     name: library-management-system
+  docker:
+    compose:
+      enabled: ${DOCKER_COMPOSE_ENABLED:false}
+      lifecycle-management: start_only
+  jpa:
+    show-sql: false
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+  threads:
+    virtual:
+      enabled: true
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://${DATABASE_HOST:library-management-database}:5432/library_management
+    username: ${DATABASE_USER:user_library_management}
+    password: ${DATABASE_PASSWORD:12345678}
+  rabbitmq:
+    host: ${RABBITMQ_HOST:rabbitmq}
+    port: ${RABBITMQ_PORT:5672}
+    username: ${RABBITMQ_USER:user_library_management}
+    password: ${RABBITMQ_PASSWORD:12345678}
+
+management:
+  health:
+    rabbit:
+      enabled: true
+    db:
+      enabled: true
