@@ -26,8 +26,8 @@ public class BookController {
 
     @PostMapping
     @Operation(
-        summary = "Create a new book",
-        description = "Create a new book with the given input",
+        summary = "Criar um novo livro",
+        description = "Criar um novo livro",
         tags = { "books" }
     )
     public ResponseEntity<ApiResponse<BookDetail>> createBook(@RequestBody final CreateBookInput input) {
@@ -37,8 +37,8 @@ public class BookController {
 
     @GetMapping("/{bookId}")
     @Operation(
-        summary = "Find a book by id",
-        description = "Find a book by the given id",
+        summary = "Buscar um livro pelo id",
+        description = "Buscar um livro pelo id",
         tags = { "books" }
     )
     public ResponseEntity<ApiResponse<BookDetail>> findById(@PathVariable final Long bookId) {
@@ -49,8 +49,8 @@ public class BookController {
 
     @GetMapping
     @Operation(
-        summary = "Find all books",
-        description = "Find all books",
+        summary = "Buscar todos os livros",
+        description = "Buscar todos os livros",
         tags = { "books" }
     )
     public ResponseEntity<ApiCollectionResponse<BookDetail>> findAll() {
@@ -62,8 +62,8 @@ public class BookController {
 
     @PutMapping("/{bookId}")
     @Operation(
-        summary = "Update a book",
-        description = "Update a book with the given input",
+        summary = "Atualizar um livro",
+        description = "Atualiza os campos título, isbn e categoria de um livro de acordo com o id informado",
         tags = { "books" }
     )
     public ResponseEntity<ApiResponse<BookDetail>> updateBook(
@@ -76,8 +76,8 @@ public class BookController {
 
     @DeleteMapping("/{bookId}")
     @Operation(
-        summary = "Delete a book",
-        description = "Delete a book by the given id",
+        summary = "Deletar um livro pelo id",
+        description = "Deletar um livro pelo id",
         tags = { "books" }
     )
     public ResponseEntity<Void> deleteBook(@PathVariable final Long bookId) {
