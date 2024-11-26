@@ -28,7 +28,7 @@ public class Author implements Serializable {
     private static final long serialVersionUID = 4819331835099580631L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
     private Long id;
 
