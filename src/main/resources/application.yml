@@ -24,7 +24,15 @@ spring:
     port: ${RABBITMQ_PORT:5673}
     username: ${RABBITMQ_USER:user_library_management}
     password: ${RABBITMQ_PASSWORD:12345678}
-
+  modulith:
+    events:
+      jdbc:
+        schema-initialization:
+          enabled: true
+      externalization:
+        enabled: true
+      rabbitmq:
+        enable-json: true
 management:
   health:
     rabbit:
