@@ -16,12 +16,12 @@ spring:
       enabled: true
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://${DATABASE_HOST:library-management-database}:5432/library_management
+    url: jdbc:postgresql://${DATABASE_HOST:library-management-database}:5400/library_management
     username: ${DATABASE_USER:user_library_management}
     password: ${DATABASE_PASSWORD:12345678}
   rabbitmq:
     host: ${RABBITMQ_HOST:rabbitmq}
-    port: ${RABBITMQ_PORT:5672}
+    port: ${RABBITMQ_PORT:5673}
     username: ${RABBITMQ_USER:user_library_management}
     password: ${RABBITMQ_PASSWORD:12345678}
 
