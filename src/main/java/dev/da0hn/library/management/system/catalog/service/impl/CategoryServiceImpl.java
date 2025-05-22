@@ -7,8 +7,6 @@ import dev.da0hn.library.management.system.catalog.domain.repositories.CategoryR
 import dev.da0hn.library.management.system.catalog.dto.CreateCategoryInput;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.modulith.events.EventPublication;
-import org.springframework.modulith.events.core.EventPublicationRegistry;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
